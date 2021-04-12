@@ -160,446 +160,394 @@
 <!---ecms.field--->0<!---ecms.field--->1<!---ecms.field--->0<!---ecms.field--->0<!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->默认js模板<!---ecms.field--->[!--empirenews.listtemp--]<li><a href="[!--titleurl--]" title="[!--oldtitle--]">[!--title--]</a></li>[!--empirenews.listtemp--]<!---ecms.field--->0<!---ecms.field--->1<!---ecms.field--->m-d<!---ecms.field--->1<!---ecms.field--->0<!---ecms.field--->32<!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->默认新闻列表模板<!---ecms.field---><?php
 $title='';
 if (isset($_GET['tagname'])) {
-    $url = abs_url("/tag/{$_GET['tagname']}");
+$url = abs_url("/tag/{$_GET['tagname']}");
 }elseif (!empty($class_r[$navclassid][bname])){
-    $title = $class_r[$navclassid][bname] . '-';
-    $url = sys_ReturnBqClassUrl($class_r[$navclassid]);
+$title = $class_r[$navclassid][bname] . '-';
+$url = sys_ReturnBqClassUrl($class_r[$navclassid]);
 }else{
-    $url = sys_ReturnBqClassUrl($class_r[$navclassid]);
+$url = sys_ReturnBqClassUrl($class_r[$navclassid]);
 }?><!DOCTYPE html>
-<html mip>
+<html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
     <meta name="applicable-device" content="pc,mobile">
-    <meta name="MobileOptimized" content="width"/>
-    <meta name="HandheldFriendly" content="true"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <link rel="shortcut icon" href="[!--news.url--]skin/custom/favicon.ico" type="image/x-icon" />
     <title><?=$title?>[!--pagetitle--]-<?=$public_r[add_title_suffix]?></title>
     <meta name="keywords" content="[!--pagekey--]">
-    <meta name="description" content="[!--pagedes--]">      
-    <link rel="stylesheet" type="text/css" href="[!--news.url--]skin/custom/v1/mip.css">
-    <link rel="stylesheet" href="[!--news.url--]skin/custom/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="[!--news.url--]skin/custom/css/mipcms.css">
+    <meta name="description" content="[!--pagedes--]">
+    <link href="[!--news.url--]skin/custom/css/base.css" rel="stylesheet">
+    <link href="[!--news.url--]skin/custom/css/m.css" rel="stylesheet">
+    <link rel="shortcut icon" href="[!--news.url--]skin/custom/images/favicon.ico">
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/main.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/modernizr.js"></script>
+    <![endif]-->
+    <!-- banner-->
+    <link rel="stylesheet" href="[!--news.url--]skin/custom/css/swiper.min.css">
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/swiper.min.js"></script>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/banner.js"></script>
     <link rel="canonical" href="[!--news.url--]">
     <?=$public_r[add_ad]?>
-    <style mip-custom>
-        .search-form div{
-            width: 250px;
-        }
-        .mipmb-default-search {
-            margin-top: -4px;
-        }
-                
-        mip-fixed[type="top"] {
-            overflow: initial;
-        }
-    </style>
 </head>
+
 <body>
-    
-    <!--页面头部-->
-    [!--temp.header--]
-    
-<div class="container">
-    <ul class="list-unstyled d-flex breadcrumb p-0 bg-transparent">[!--newsnav--]</ul>
-    <div class="row">
-        <main class="col-lg-8">            
-            <section class="mip-box mip-box-default">
-                <section class="mip-box-heading">
-                    <h3>[!--class.name--]</h3>
-                </section>
-                <section class="mip-box-body">
-                    <!--调用封面栏目最新10条信息-->
-                    [!--empirenews.listtemp--]<!--list.var1--> [!--empirenews.listtemp--]
-
-                    
-                    <!--调用分页-->
-                   <div class="page-control"><ul class="pagination"> [!--show.listpage--]</ul></div> 
-                </section>
-        </main>
-        
-    <!--侧边栏-->
-    [!--temp.sidebar--]
-</div>
-</div>
-
-</main>
-    <footer class="mipui-footer">
-        <div class="container">
-            <p class="text-center mip-footer">&copy;2018-2021 <a data-type="mip" href="[!--news.url--]" data-title="<?=$public_r['sitename']?>"><?=$public_r['sitename']?></a> 备案号:<a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow">豫ICP备10007855号-1</a><a target="_blank" href="[!--news.url--]/sitemap.xml">网站地图</a><br class="visible-xs" /></p>
-            <!--站长自动推送-->
-            <script>
-            (function(){
-                var bp = document.createElement('script');
-                var curProtocol = window.location.protocol.split(':')[0];
-                if (curProtocol === 'https') {
-                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-                }
-                else {
-                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-                }
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(bp, s);
-            })();
-            </script> </p>
-        </div>
-    </footer>
-    <mip-fixed type="gototop">
-        <mip-gototop></mip-gototop>
-    </mip-fixed>
-
-<script src="[!--news.url--]skin/custom/v1/mip.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-stats-baidu.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-gototop.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-history.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-fixed.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-cambrian.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-form.js" type="text/javascript" charset="utf-8"></script>
-
-</body>
-</html><!---ecms.field--->0<!---ecms.field--->0<!---ecms.field---><div class="mipui-widget-media-body mipui-category-list-001">
-    <div class="mipui-category-list-item">
-        <div class="item-media">
-            <a href="[!--titleurl--]" class="item-link" data-type="mip" data-title="[!--oldtitle--]" title='[!--title--]'>
-                <mip-img layout="container" alt='[!--oldtitle--]' src="[!--titlepic--]"></mip-img>
-            </a>
-        </div>
-        <div class="item-content">
-            <h4><a href="[!--titleurl--]" data-type="mip" data-title="[!--title--]" title='[!--title--]'>[!--title--]</a></h4>
-            <p class="description"> [!--smalltext--] ..</p>
-            <p><span>[!--newstime--]</span></p>
+<!--页面头部-->
+[!--temp.header--]
+<div class="clear blank"></div>
+<article>
+    <div class="blogs left-box">
+        <div class="blogs-box whitebg">
+            <!--当前位置-->
+            <div class="news-title"> <span class="hnav"> 当前位置:[!--newsnav--]</span>
+                <h2>[!--class.name--]</h2>
+            </div>
+            <div class="blogs-list">
+                <ul>
+                    <li>
+                        <!--调用列表-->
+                        [!--empirenews.listtemp--]<!--list.var1--> [!--empirenews.listtemp--]
+                    </li>
+                </ul>
+            </div>
+            <!--分页导航-->
+            <div class="pages">
+                <ul>
+                    [!--show.listpage--]
+                </ul>
+            </div>
         </div>
     </div>
-</div><!---ecms.field--->1<!---ecms.field--->1<!---ecms.field--->Y-m-d<!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->1<!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->默认新闻内容模板<!---ecms.field--->0<!---ecms.field---><?php
-$title='';
-if (isset($_GET['tagname'])) {
-    $url = abs_url("/tag/{$_GET['tagname']}");
-}elseif (!empty($class_r[$navclassid][bname])){
-    $title = $class_r[$navclassid][bname] . '-';
-    $url = sys_ReturnBqClassUrl($class_r[$navclassid]);
-}else{
-    $url = sys_ReturnBqClassUrl($class_r[$navclassid]);
-}?><!DOCTYPE html>
-<html mip>
+    <!--侧边栏-->
+    [!--temp.sidebar--]
+</article>
+<div class="clear blank"></div>
+<!--页面底部-->
+[!--temp.footer--]
+</body>
+</html><!---ecms.field--->0<!---ecms.field--->0<!---ecms.field---><li><i><a href="[!--titleurl--]" title="[!--oldtitle--]"><img src="[!--titlepic--]" alt="[!--oldtitle--]"></a></i>
+<h2><a href="[!--titleurl--]" title="[!--oldtitle--]">[!--oldtitle--]</a></h2>
+<p>[!--smalltext--]...</p>
+<span><a href="[!--titleurl--]" title="[!--oldtitle--]">查看更多</a> </span> </li><!---ecms.field--->1<!---ecms.field--->1<!---ecms.field--->Y-m-d<!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->1<!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->默认新闻内容模板<!---ecms.field--->0<!---ecms.field---><!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
     <meta name="applicable-device" content="pc,mobile">
-    <meta name="MobileOptimized" content="width"/>
-    <meta name="HandheldFriendly" content="true"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <link rel="shortcut icon" href="[!--news.url--]skin/custom/favicon.ico" type="image/x-icon" />
     <title>[!--pagetitle--]-<?=$public_r[add_title_suffix]?></title>
     <meta name="keywords" content="[!--pagekey--]">
-    <meta name="description" content="[!--pagedes--]">      
-    <link rel="stylesheet" type="text/css" href="[!--news.url--]skin/custom/v1/mip.css">
-    <link rel="stylesheet" href="[!--news.url--]skin/custom/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="[!--news.url--]skin/custom/css/mipcms.css">
+    <meta name="description" content="[!--pagedes--]">
+    <link href="[!--news.url--]skin/custom/css/base.css" rel="stylesheet">
+    <link href="[!--news.url--]skin/custom/css/m.css" rel="stylesheet">
+    <link rel="shortcut icon" href="[!--news.url--]skin/custom/images/favicon.ico">
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/main.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/modernizr.js"></script>
+    <![endif]-->
+    <!-- banner-->
+    <link rel="stylesheet" href="[!--news.url--]skin/custom/css/swiper.min.css">
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/swiper.min.js"></script>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/banner.js"></script>
     <link rel="canonical" href="[!--news.url--]">
     <?=$public_r[add_ad]?>
-    <style mip-custom>
-        .search-form div{
-            width: 250px;
-        }
-        .mipmb-default-search {
-            margin-top: -4px;
-        }
-                
-        mip-fixed[type="top"] {
-            overflow: initial;
-        }
-    </style>
 </head>
 <body>
-    
-    <!--页面头部-->
-    [!--temp.header--]
-    
-<div class="container">
-    <ul class="list-unstyled d-flex breadcrumb p-0 bg-transparent">[!--newsnav--]</ul>
-    <div class="row">
-        <main class="col-lg-8">
-            <section class="mip-box mip-box-main">
-                <section class="mip-box-heading">
-                    <h1 class="detail-title">[!--title--]</h1>
-                    <div class="info clearfix">
-                        <ul>
-                            <li>时间:<time>[!--newstime--]</time></li>
-                            <li>浏览:<script src=[!--news.url--]e/public/ViewClick/?classid=[!--classid--]&id=[!--id--]&addclick=1></script></li>
-                            <li>来源:<?=article_source()?></li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="mip-box-body mipcms-detail-body">
-                     [!--newstext--]
-                <div class="mipui-widget-media-body mipui-category-list-001">
-                    <div class="mip-box-footer item-up-down-page ">
-                        <ul class="clearfix list-unstyled">
-                            <div class="mipmb-page-item item-up-page">
-                                <p>下一篇:[!--info.pre--]</p>
-                            </div>
-                            <div class="mipmb-page-item item-down-page ">
-                                <p>下一篇:[!--info.next--]</p>
-                            </div>
-                        </ul>
-                    </div>
-                    <div class="mip-box-footer item-up-down-page ">
-                        <ul class="clearfix list-unstyled">
-                           本文ATG:<?php $tag_row=$empire->fetch1("select infotags from
-                            {$dbtbpre}ecms_news_data_{$navinfor[stb]} where id='$navinfor[id]'");
-                            $tags=array_unique(explode(',',$tag_row['infotags']));
-                            foreach($tags as $tag){?>
-                            <a href="[!--news.url--]tag/<?=$tag?>" target="_blank"><?=$tag?></a>
-                            <?php } ?> 
-                        </ul>
-                    </div>
-                    相关推荐:<br/>
-                            [e:loop={0,5,13,0}]
-                            <a href="<?=$bqsr['titleurl']?>" target="_blank"><?=$bqr['title']?></a> <br>
-                            [/e:loop]
+<!--页面头部-->
+[!--temp.header--]
+<div class="clear blank"></div>
+<article>
+    <div class="left-box">
+        <div class="whitebg">
+
+            <!--当前位置-->
+            <div class="news-title"> <span class="hnav"> <a href="/">首页</a>&nbsp;>&nbsp;<a href="/cygs/">创业故事</a></span>
+                <h2>创业故事</h2>
+            </div>
+            <div class="newstext-box">
+                <h1 class="news-title-h1"><font color='FF0A1B'>[!--pagetitle--]</font></h1>
+                <div class="picview-other"><span class="po-date">发布时间：[!--newstime--]</span> <span class="po-classname">来源:<?=article_source()?></span>
+                    <span class="po-view">阅读数:<script
+                            src=[!--news.url--]e/public/ViewClick/?classid=[!--classid--]&id=[!--id--]&addclick=1></script>次</span>
                 </div>
-                </section>
-            </section>
-        </main>
+                <div class="smalltext"><i></i>[!--smalltext--]...</div>
+
+                <div class="newstext">
+                    [!--newstext--]
+                </div>
+                <div class="keywords">
+                    <?php $tag_row=$empire->fetch1("select infotags from
+                    {$dbtbpre}ecms_news_data_{$navinfor[stb]} where id='$navinfor[id]'");
+                    $tags=array_unique(explode(',',$tag_row['infotags']));
+                    foreach($tags as $tag){?>
+                    <a href="[!--news.url--]tag/<?=$tag?>" target="_blank"><?=$tag?></a>
+                    <?php } ?>
+                </div>
+                <div class="clear"></div>
+                <div class="info-pre-next">
+                    <ul>
+                        <li><span>上一篇：</span>[!--info.pre--]</li>
+                        <li><span>下一篇：</span>[!--info.next--]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clear blank"></div>
+
+        <!--相关文章，显示相同tags的文章，如果没有，就显示最新文章-->
+        <div class="otherlink whitebg">
+            <div class="news-title">
+                <h2>最新文章</h2>
+            </div>
+            <ul>
+                [e:loop={0,10,3,0}]
+                <li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>" target="_blank"><?=$bqr['title']?></a></li>
+                [/e:loop]
+            </ul>
+        </div>
+    </div>
 
     <!--侧边栏-->
     [!--temp.sidebar--]
-</div>
-</div>
 
-</main>
-    <footer class="mipui-footer">
-        <div class="container">
-            <p class="text-center mip-footer">&copy;2018-2021 <a data-type="mip" href="[!--news.url--]" data-title="<?=$public_r['sitename']?>"><?=$public_r['sitename']?></a> 备案号:<a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow">豫ICP备10007855号-1</a><a target="_blank" href="[!--news.url--]/sitemap.xml">网站地图</a><br class="visible-xs" /></p>
-            <!--站长自动推送-->
-            <script>
-            (function(){
-                var bp = document.createElement('script');
-                var curProtocol = window.location.protocol.split(':')[0];
-                if (curProtocol === 'https') {
-                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-                }
-                else {
-                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-                }
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(bp, s);
-            })();
-            </script> </p>
-        </div>
-    </footer>
-    <mip-fixed type="gototop">
-        <mip-gototop></mip-gototop>
-    </mip-fixed>
+</article>
+<div class="clear blank"></div>
 
-<script src="[!--news.url--]skin/custom/v1/mip.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-stats-baidu.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-gototop.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-history.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-fixed.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-cambrian.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-form.js" type="text/javascript" charset="utf-8"></script>
+<!--页面底部-->
+[!--temp.footer--]
+
 </body>
 </html><!---ecms.field--->Y-m-d H:i:s<!---ecms.field--->1<!---ecms.field--->0<!---ecms.record---><!---ecms.temp--->1<!---ecms.field---><!DOCTYPE html>
-<html mip>
+<html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
     <meta name="applicable-device" content="pc,mobile">
-    <meta name="MobileOptimized" content="width"/>
-    <meta name="HandheldFriendly" content="true"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <link rel="shortcut icon" href="[!--news.url--]skin/custom/favicon.ico" type="image/x-icon" />
     <title>[!--pagetitle--]</title>
     <meta name="keywords" content="[!--pagekey--]">
-    <meta name="description" content="[!--pagedes--]">      
-    <link rel="stylesheet" type="text/css" href="[!--news.url--]skin/custom/v1/mip.css">
-    <link rel="stylesheet" href="[!--news.url--]skin/custom/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="[!--news.url--]skin/custom/css/mipcms.css">
+    <meta name="description" content="[!--pagedes--]">
+    <link href="[!--news.url--]skin/custom/css/base.css" rel="stylesheet">
+    <link href="[!--news.url--]skin/custom/css/m.css" rel="stylesheet">
+    <link rel="shortcut icon" href="[!--news.url--]skin/custom/images/favicon.ico">
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/main.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/modernizr.js"></script>
+    <![endif]-->
+    <!-- banner-->
+    <link rel="stylesheet" href="[!--news.url--]skin/custom/css/swiper.min.css">
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/swiper.min.js"></script>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/banner.js"></script>
     <link rel="canonical" href="[!--news.url--]">
     <?=$public_r[add_ad]?>
-    <style mip-custom>
-        .search-form div{
-            width: 250px;
-        }
-        .mipmb-default-search {
-            margin-top: -4px;
-        }
-                
-        mip-fixed[type="top"] {
-            overflow: initial;
-        }
-
-    
-    </style>
 </head>
+
 <body>
-    
-    <!--页面头部-->
-    [!--temp.header--]
+<!--页面头部-->
+[!--temp.header--]
 
-<div class="container">
-    <div class="row">
-        <main class="col-lg-8">
-            <div class="row">
-
-                <!--调用栏目1*15篇-->
-                <section class="col-lg-6">
-                    <section class="mip-box">
-                        <section class="mip-box-heading">
-                            <h3><?=$class_r[1]['classname']?></h3>
-                        </section>
-                        <section class="mip-box-body">
-                            <ul class="list-unstyled clearfix">
-                                [e:loop={1,15,0,0}]
-                                    <li class="list-time">
-                                        <a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?>...</a><time class="pull-right"><?=date('Y-m-d',$bqr['newstime'])?></time>
-                                    </li>
-                                [/e:loop]                             
-                            </ul>
-                        </section>
-                    </section>
-                </section>
-
-                 <!--调用栏目2*15篇-->
-                <section class="col-lg-6">
-                    <section class="mip-box">
-                        <section class="mip-box-heading">
-                            <h3><?=$class_r[2]['classname']?></h3>
-                        </section>
-                        <section class="mip-box-body">
-                            <ul class="list-unstyled clearfix">
-                                [e:loop={2,15,0,0}]
-                                    <li class="list-time">
-                                        <a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?>...</a><time class="pull-right"><?=date('Y-m-d',$bqr['newstime'])?></time>
-                                    </li>
-                                [/e:loop]                             
-                            </ul>
-                        </section>
-                    </section>
-                </section>
-
-                 <!--调用栏目3*15篇-->
-                <section class="col-lg-6">
-                    <section class="mip-box">
-                        <section class="mip-box-heading">
-                            <h3><?=$class_r[3]['classname']?></h3>
-                        </section>
-                        <section class="mip-box-body">
-                            <ul class="list-unstyled clearfix">
-                                [e:loop={3,15,0,0}]
-                                    <li class="list-time">
-                                        <a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?>...</a><time class="pull-right"><?=date('Y-m-d',$bqr['newstime'])?></time>
-                                    </li>
-                                [/e:loop]                             
-                            </ul>
-                        </section>
-                    </section>
-                </section>
-
-                 <!--调用栏目4*15篇-->
-                <section class="col-lg-6">
-                    <section class="mip-box">
-                        <section class="mip-box-heading">
-                            <h3><?=$class_r[4]['classname']?></h3>
-                        </section>
-                        <section class="mip-box-body">
-                            <ul class="list-unstyled clearfix">
-                                [e:loop={4,15,0,0}]
-                                    <li class="list-time">
-                                        <a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?>...</a><time class="pull-right"><?=date('Y-m-d',$bqr['newstime'])?></time>
-                                    </li>
-                                [/e:loop]                             
-                            </ul>
-                        </section>
-                    </section>
-                </section>
-
-                 <!--调用栏目5*15篇-->
-                 <section class="col-lg-6">
-                    <section class="mip-box">
-                        <section class="mip-box-heading">
-                            <h3><?=$class_r[5]['classname']?></h3>
-                        </section>
-                        <section class="mip-box-body">
-                            <ul class="list-unstyled clearfix">
-                                [e:loop={5,15,0,0}]
-                                    <li class="list-time">
-                                        <a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?>...</a><time class="pull-right"><?=date('Y-m-d',$bqr['newstime'])?></time>
-                                    </li>
-                                [/e:loop]                             
-                            </ul>
-                        </section>
-                    </section>
-                </section>
-                            
-                 <!--调用栏目6*15篇-->
-                 <section class="col-lg-6">
-                    <section class="mip-box">
-                        <section class="mip-box-heading">
-                            <h3><?=$class_r[6]['classname']?></h3>
-                        </section>
-                        <section class="mip-box-body">
-                            <ul class="list-unstyled clearfix">
-                                [e:loop={6,15,0,0}]
-                                    <li class="list-time">
-                                        <a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?>...</a><time class="pull-right"><?=date('Y-m-d',$bqr['newstime'])?></time>
-                                    </li>
-                                [/e:loop]                             
-                            </ul>
-                        </section>
-                    </section>
-                </section>
-             </div>
-        </main>
-
-        <!--侧边栏-->
-        [!--temp.sidebar--]
+<div class="clear blank"></div>
+<article>
+    <div class="tuijian-banner box whitebg">
+        <div class="banner-box">
+            <!-- banner begin-->
+            <div class="banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        [e:loop={0,5,5,1,'isgood>2'}]
+                        <div class="swiper-slide"><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><img src="<?= $bqr['titlepic'] ?>" alt="<?=$bqr['title']?>"><span><?= $bqsr['classname'] ?></span></a></div>
+                        [/e:loop]
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+            <!-- banner end-->
+            <!-- headline-boc begin-->
+            <div class="headline-box">
+                <div class="headline-news">
+                    <h2 class="headline-news-title"><span>头条</span>
+                        [e:loop={0,1,13,0,'isgood>3'}]
+                        <a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>" target="_blank"><?=$bqr['title']?></a></h2>
+                    <p class="headline-news-smalltext">导读:<?= esub($bqr['smalltext'],130) ?>...</p>
+                    [/e:loop]
+                    <ul class="headline-news-list">
+                        [e:loop={0,7,13,0,'firsttitle>3'}]
+                        <li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>" target="_blank"><?=$bqr['title']?></a></li>
+                        [/e:loop]
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <!-- headline-box end-->
+    <div class="clear blank"></div>
+    <!--首页展示的多个栏目样式1-->
+    <div class="tuijian-news box whitebg tab-num01">
+        <div class="gd-box">
+            <ul id="tab">
+                <li class="tab-current">推荐排行</li>
+            </ul>
+        </div>
+        <div id="tab-content">
+            <section class="tab-box">
+                [e:loop={0,1,5,1,'isgood>1'}]
+                <div class="tuijian-news-pic">
+                    <i><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><img src="<?= $bqr['titlepic'] ?>" alt="<?=$bqr['title']?>"><span>推荐</span></a></i>
+                    <h2><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?></a></h2>
+                    <p><?= esub($bqr['smalltext'],130) ?>...</p>
+                    <a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>" class="btn-blue-border">阅读更多</a>
+                </div>
+                [/e:loop]
+                <div class="tuijian-news-list">
+                    <ul>
+                        [e:loop={0,6,5,0,'firsttitle>1'}]
+                        <li>
+                            <a target="_blank" href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><span><b><?=date('d',$bqr['newstime'])?></b><?=date('Y-m',$bqr['newstime'])?></span>
+                                <h3><?=$bqr['title']?></h3>
+                                <p><?= esub($bqr['smalltext'],130) ?>...</p>
+                            </a>
+                        </li>
+                        [/e:loop]
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--首页展示的多个栏目样式2-->
+    <div class="pics box whitebg tab-num02">
+        <div class="gd-box">
+            <ul id="tab">
+                <li class="tab-current">图文推荐</li>
+            </ul>
+        </div>
+        <div id="tab-content">
+            <section class="tab-box">
+                <div class="pic-list-img">
+                    <ul>
+                        [e:loop={0,7,4,1,'isgood>1'}]
+                        <li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><i><img src="<?= $bqr['titlepic'] ?>" alt="<?=$bqr['title']?>"></i><span><?=$bqr['title']?></span></a></li>
+                        [/e:loop]
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--首页展示的多个栏目样式3-->
+    <div class="news box whitebg tab-num03">
+        <div class="gd-box">
+            <ul id="tab">
+                <li class="tab-current">热门文章</li>
+            </ul>
+        </div>
+        <div id="tab-content">
+            <section class="tab-box">
+                <div class="news-zuixin">
+                    <ul>
+                        [e:loop={0,8,4,1,'isgood=1'}]
+                        <li>
+                            <section><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>" class="news-zuixin-pic"><img src="<?= $bqr['titlepic'] ?>" alt="<?=$bqr['title']?>"></a>
+                                <h2><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?></a></h2>
+                                <p><?= esub($bqr['smalltext'],130) ?>...</p>
+                            </section>
+                        </li>
+                        [/e:loop]
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
 
-    </main>
-    <footer class="mipui-footer">
-    <div class="container">
-        <!--友情链接开始-->
-            友情链接: 
+    <!--首页展示的多个栏目样式4-->
+    <div class="videos box whitebg tab-num04">
+        <div class="gd-box">
+            <ul id="tab">
+                <li class="tab-current">站长推荐</li>
+            </ul>
+        </div>
+        <div id="tab-content">
+            <section class="tab-box">
+                <div class="videos-list">
+                    <ul>
+                        [e:loop={0,8,4,1,'firsttitle=1'}]
+                        <li>
+                            <a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><i><img src="<?= $bqr['titlepic'] ?>" alt="<?=$bqr['title']?>"></i>
+                                <h2><?=$bqr['title']?></h2>
+                            </a></li>
+                        [/e:loop]
+
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--首页展示的多个栏目样式5-->
+    <div class="wenzi whitebg box tab-num05">
+        <div class="gd-box">
+            <ul id="tab">
+                <li class="tab-current">最近更新</li>
+            </ul>
+        </div>
+        <div id="tab-content">
+            <section class="tab-box">
+                <div class="wenzi-list">
+                    <ul class="wenzi-left">
+                        [e:loop={0,8,3,0}]
+                        <li><span><?=date('Y-m-d',$bqr['newstime'])?></span><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?></a></li>
+                        [/e:loop]
+                    </ul>
+                    <ul class="wenzi-right">
+                        [e:loop={0,8,3,0}]
+                        <li><span><?=date('Y-m-d',$bqr['newstime'])?></span><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?></a></li>
+                        [/e:loop]
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!--tags标签-->
+    <div class="whitebg box tags">
+        <div class="news-title">
+            <h2>标签云</h2>
+        </div>
+        <ul>
+            [e:loop={"select * from {$dbtbpre}enewstags order by num desc limit 40",0,24,0}]
+            <a href="<?= $public_r['newsurl'] . 'tag/' . $bqr['tagname'] ?>" target="_blank" title="<?= $bqr['tagname'] ?>"><?= esub($bqr['tagname'], 8) ?></a>
+            [/e:loop]
+        </ul>
+    </div>
+    <!-- tags end-->
+    <div class="blank clear"></div>
+
+    <!--友情链接-->
+    <div class="links whitebg box ">
+        <div class="news-title">
+            <h2>友情链接</h2>
+        </div>
+        <ul>
             [e:loop={'select * from [!db.pre!]enewslink where checked=1 order by lid',20,24,0}]
-                <a href="<?= $bqr['lurl'] ?>" title="<?= $bqr['lname'] ?>" target='_blank'><?= $bqr['lname'] ?></a>
-            [/e:loop] 
-		<!--友情链接结束-->
-        <p class="text-center mip-footer">&copy;2018-2021 <a data-type="mip" href="[!--news.url--]" data-title="<?=$public_r['sitename']?>"><?=$public_r['sitename']?></a> 备案号:<a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow">豫ICP备10007855号-1</a><a target="_blank" href="[!--news.url--]/sitemap.xml">网站地图</a><br class="visible-xs" /></p>
-
-<!--站长自动推送-->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script> </p>
+            <li><a href="<?= $bqr['lurl'] ?>" title="<?= $bqr['lname'] ?>" target='_blank'><?= $bqr['lname'] ?></a></li>
+            [/e:loop]
+        </ul>
     </div>
-</footer>
-    <mip-fixed type="gototop">
-        <mip-gototop></mip-gototop>
-    </mip-fixed>
-    
-    <script src="[!--news.url--]skin/custom/v1/mip.js"></script>
-    <script src="[!--news.url--]skin/custom/v1/mip-stats-baidu.js"></script>
-    <script src="[!--news.url--]skin/custom/v1/mip-gototop.js" type="text/javascript" charset="utf-8"></script>
-    <script src="[!--news.url--]skin/custom/v1/mip-history.js" type="text/javascript" charset="utf-8"></script>
-    <script src="[!--news.url--]skin/custom/v1/mip-fixed.js" type="text/javascript" charset="utf-8"></script>
-    <script src="[!--news.url--]skin/custom/v1/mip-cambrian.js"></script>
-    <script src="[!--news.url--]skin/custom/v1/mip-form.js" type="text/javascript" charset="utf-8"></script>
-    
+    <!--/友情链接-->
+    <div class="blank clear"></div>
+</article>
+
+<!--页面底部-->
+[!--temp.footer--]
+
 </body>
 </html><!---ecms.field---><!---ecms.field---><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -1178,107 +1126,150 @@ $listtemp=$headtit.'
     <time><i class=\"fa fa-clock-o\"></i><font>[!--newstime--]</font></time>
     <span class=\"pv\"><i class=\"fa fa-eye\"></i>阅读([!--onclick--])</span> <span class=\"pc\"><i class=\"fa fa-comments-o\"></i>作者([!--username--])</span> </p>
 <p class=\"note\">[!--smalltext--]</p>
-</article>';<!---ecms.field--->1<!---ecms.field--->1<!---ecms.field--->Y-m-d<!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->1<!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->header<!---ecms.field--->页面头部<!---ecms.field---><mip-shell disabled></mip-shell> 
-    <mip-fixed type="top">
-            <div class="mipmb-header mipmb-header-default" id="mip_header">
-            <div class="container">
-                <div class="menu-warp">
-                    <div class="logo-text">
-                        <a data-type="mip" href="[!--news.url--]" data-title="<?=$public_r['sitename']?>"><?=$public_r[add_title_suffix]?></a>
-                    </div>
-                    <ul class="mipmb-menu list-unstyled">
-                            <li class='nav-item active'><a href="[!--news.url--]" data-type="mip" data-title="<?=$public_r['sitename']?>" title='<?=$public_r['sitename']?>'>首页</a></li>
-                            [e:loop={"select classid,classname,classpath,bname,islast from {$dbtbpre}enewsclass where bclassid=0
-                            and
-                            showclass=0 order by myorder,classid ASC",0,24,0}]            
-                                <li class='mipmb-dropdown-item<?=$bqr[islast]?'':' dropdown'?>'>
-                                    <a href="<?=$bqsr['classurl']?>" data-type="mip" data-title="<?=$bqr['classname']?>" title="<?=$bqr['classname']?>"><?=$bqr['classname']?></a> <?php if(!$bqr['islast']):?>
-                                    <ul class="mipmb-dropdown-list">
-                                        <?php $child = $empire->query("select classid,classname,bname,classpath from
-                                        {$dbtbpre}enewsclass
-                                        where bclassid={$bqr['classid']} order by myorder,classid asc limit 11");
-                                        while ($child_r = $empire->fetch($child)) { ?>
-                                        <li><a href="<?=sys_ReturnBqClassUrl($child_r,9)?>" data-type="mip" data-title="<?=$child_r['bname'] ? $child_r['bname'] : $child_r['classname']?>"" title='<?=$child_r['bname'] ? $child_r['bname'] : $child_r['classname']?>"'><?=$child_r['classname']?></a></li><?php }?>
-                                    </ul>
-                                    <?php endif;?>
-                                </li>
-                            [/e:loop]
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </mip-fixed>
-<main class="mipcms-main"></main><!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->1<!---ecms.record--->2<!---ecms.field--->footer<!---ecms.field--->页面尾部<!---ecms.field---><footer class="footer">
-  <div class="footer-bg"></div>
-  <div class="footer-copyright">
-    <div class="footer_container">
-      <div class="copyright">
-        <p>Copyright<i class="fa fa-copyright"></i>2019-2021<a href="[!--news.url--]"><?=$public_r[add_title_suffix]?>.</a>Rights Reserved. <a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow">闽ICP备20009419号-23</a> .联系QQ：380 501 23 . </p>
-      </div>
-    </div>
-  </div>
-</footer>
-<div id="backtop" class="backtop">
-  <div class="bt-box top" style="display: block;"> <i class="fa fa-angle-up fa-2x"></i> </div>
-  <div class="bt-box bottom"> <i class="fa fa-angle-down fa-2x"></i> </div>
+</article>';<!---ecms.field--->1<!---ecms.field--->1<!---ecms.field--->Y-m-d<!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->1<!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->header<!---ecms.field--->页面头部<!---ecms.field---><header>
+
+<div class="tip">
+<div class="box">
+<div class="welcome">您好，欢迎您访问<?=$public_r['sitename']?></div>
+<div class="tipr">
+<script src="#"></script>
 </div>
-<div class="none">
-  <script src="[!--news.url--]skin/custom/js/custom.js"></script>
-  <script src="[!--news.url--]skin/custom/js/sticky-sidebar.js"></script>
-  <script>var swiper = new Swiper('.swiper-home', {pagination:'.swiper-home-pagination',nextButton:'.swiper-home-button-next',prevButton:'.swiper-home-button-prev',paginationClickable:true,centeredSlides:true,autoplay:5000,autoplayDisableOnInteraction:false,lazyLoading:true,mousewheelControl:false,keyboardControl:true,loop:true});</script>
-  <script src="[!--news.url--]skin/custom/js/wow.min.js"></script>
-  <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer" >
-</script>
-  <script>
+</div>
+</div>
+
+<div class="logo-section box">
+<!--搜索-->
+<div class="search">
+<form method="post" class="s-form container" action="#"  name="formsearch">
+<input type="hidden" name="show" value="title">   <!--搜索的字段-->
+<input type="hidden" name="tempid" value="1">     <!--所用搜索模板的ID-->
+<input type="hidden" name="tbname" value="news">   <!--按数据表搜索-->
+<input  name="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+<input name="submit" class="input_submit" value="搜索" type="submit">
+</form>
+</div>
+
+<!--logo-->
+<div class="logo">
+<a href="/"><img src="[!--news.url--]skin/custom/images/logo.png" alt="<?=$public_r['sitename']?>">
+</a> </div>
+
+</div>
+<div class="clear"></div>
+<div class="topnav">
+<h2><a href="/"><?=$public_r['sitename']?></a></h2>
+<nav>
+<ul id="starlist">
+<li><a class="hover" href="/">首页</a></li>
+
+[e:loop={"select classid,classname,classpath,bname,islast from {$dbtbpre}enewsclass where bclassid=0
+and
+showclass=0 order by myorder,classid ASC",0,24,0}]
+<li class="<?=$bqr[islast]?'':' dropdown'?>">
+<a href="<?=$bqsr['classurl']?>" class="dropdown-toggle"><?=$bqr['classname']?></a>
+<?php if(!$bqr['islast']):?>
+<ul class="sub">
+<?php $child = $empire->query("select classid,classname,bname,classpath from
+{$dbtbpre}enewsclass
+where bclassid={$bqr['classid']} order by myorder,classid asc limit 11");
+while ($child_r = $empire->fetch($child)) { ?>
+<li >
+<a href="<?=sys_ReturnBqClassUrl($child_r,9)?>" title="<?=$child_r['bname'] ? $child_r['bname'] : $child_r['classname']?>">
+<?=$child_r['classname']?>
+</a>
+</li>
+<?php }?>
+</ul>
+<?php endif;?>
+</li>
+[/e:loop]
+</ul>
+</nav>
+<h2 id="mnavh"><span class="navicon"></span></h2><span class="m_search"></span>
+</div>
+<!--
+<div class="search" id="m_search">
+<form method="post" class="s-form container" action="#"  name="formsearch">
+<input type="hidden" name="show" value="title,ftitle">
+<input type="hidden" name="tempid" value="1">
+<input type="hidden" name="tbname" value="news">
+
+<input  name="keyboard" class="input_text" value="有问必答！请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='有问必答！请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='有问必答！请输入关键字'}" type="text">
+<input name="submit" class="input_submit" value="搜索" type="submit">
+</form>
+</div>
+-->
+</header>
+
+
+
+
+<!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->1<!---ecms.record--->2<!---ecms.field--->footer<!---ecms.field--->页面尾部<!---ecms.field---><footer>
+<div class="footer box">
+<div class="endnav">
+<p>所有文章未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：[!--news.url--]</p>
+<p>Copyright © 2018-2021 &nbsp;&nbsp;Powered By <a href="[!--news.url--]" title="<?=$public_r['sitename']?>" target="_blank"><?=$public_r['sitename']?></a>&nbsp;&nbsp;备案号:&nbsp;&nbsp;<a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow">苏ICP备16007902号</a></p>
+</div>
+</div>
+</footer>
+
+<a href="#" title="返回顶部" class="icon-top"></a>
+<!--<script src=<"[!--news.url--]skin/custom/js/hc-sticky.js"></script>-->
+
+<!--百度自动推送-->
+<script>
 (function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
+var bp = document.createElement('script');
+var curProtocol = window.location.protocol.split(':')[0];
+if (curProtocol === 'https') {
+bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+}
+else {
+bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+}
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(bp, s);
 })();
-</script><!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->0<!---ecms.record--->4<!---ecms.field--->sidebar<!---ecms.field--->侧边栏<!---ecms.field---><!--最新文章10篇-->
-        <aside class="col-lg-4 hidden-xs">
-            <section class="mip-box mip-box-default">
-                <section class="mip-box-heading"><h3>最新文章</h3></section>
-                <section class="mip-box-body">
-                    <ul class="list-unstyled">
-                        [e:loop={0,10,3,0}]
-                            <li class="li-box-list"><a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqno?>:<?=$bqr['title']?></a></li>
-                        [/e:loop]
-                    </ul>
-                </section>
-            </section>
+</script><!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->0<!---ecms.record--->4<!---ecms.field--->sidebar<!---ecms.field--->侧边栏<!---ecms.field---><script type="text/javascript" src="[!--news.url--]skin/custom/js/theia-sticky-sidebar.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+jQuery('#sidebar').theiaStickySidebar({
+// Settings 距离浏览器顶部10px
+additionalMarginTop: 10
+});
+});
+</script>
+<aside id='sidebar' class="side-section right-box">
+<!--推荐文章，一级推荐-->
+<div class="whitebg suiji">
+<h2 class="side-title">站长推荐</h2>
+<ul>
+[e:loop={0,10,4,0,'isgood>2'}]
+<li> <a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>" target="_blank"><?=$bqr['title']?></a></li>
+[/e:loop]
+</ul>
+</div>
 
-            <!--热门文章10篇-->
-            <section class="mip-box mip-box-default">
-                <section class="mip-box-heading"><h3>热门文章</h3></section>
-                <section class="mip-box-body">
-                    <ul class="list-unstyled">
-                        [e:loop={0,10,5,0,'isgood>1 '}]    
-                            <li class="li-box-list"><a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqno?>:<?=$bqr['title']?></a></li>
-                        [/e:loop]
-                    </ul>
-                </section>
-            </section>
+<!--热门文章-->
+<div class="whitebg paihang">
+<h2 class="side-title">点击排行</h2>
+<ul>
+[e:loop={0,10,5,0,'firsttitle>2'}]
+<li><i></i><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>" target="_blank"><?=$bqr['title']?></a></li>
+[/e:loop]
+</ul>
+</div>
 
-            <!--推荐文章10篇-->
-            <section class="mip-box mip-box-default">
-                <section class="mip-box-heading"><h3>推荐文章</h3></section>
-                <section class="mip-box-body">
-                    <ul class="list-unstyled">
-                        [e:loop={0,10,13,0}]   
-                            <li class="li-box-list"><a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title="<?=$bqr['title']?>"><?=$bqno?>:<?=$bqr['title']?></a></li>
-                        [/e:loop]
-                    </ul>
-                </section>
-            </section>
-        </aside><!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->0<!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->默认投票模板<!---ecms.field---><table width=100% border=0 align=center cellpadding=3 cellspacing=0><form name=enewsvote method=POST action='[!--vote.action--]' target=_blank><tr><td><strong>[!--title--]</strong></td></tr><input type=hidden name=voteid value='[!--voteid--]'><input type=hidden name=enews value=AddVote>
+<!--标签云-->
+<div class="whitebg cloud">
+<h2 class="side-title">标签云</h2>
+<ul>
+[e:loop={"select * from {$dbtbpre}enewstags order by num desc limit 22",0,24,0}]
+<a href="<?= $public_r['newsurl'] . 'tag/' . $bqr['tagname'] ?>" target="_blank" title="<?= $bqr['tagname'] ?>"><?= esub($bqr['tagname'], 8) ?></a>
+[/e:loop]
+</ul>
+</div>
+</aside><!---ecms.field--->0<!---ecms.field--->0<!---ecms.field--->0<!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->默认投票模板<!---ecms.field---><table width=100% border=0 align=center cellpadding=3 cellspacing=0><form name=enewsvote method=POST action='[!--vote.action--]' target=_blank><tr><td><strong>[!--title--]</strong></td></tr><input type=hidden name=voteid value='[!--voteid--]'><input type=hidden name=enews value=AddVote>
     [!--empirenews.listtemp--]
     <tr><td>[!--vote.box--]&nbsp;[!--vote.name--]</td></tr>
     [!--empirenews.listtemp--]
@@ -1289,119 +1280,73 @@ $listtemp=$headtit.'
     <tr><td align=center><input type=submit name=submit value=投票>&nbsp;&nbsp;<input type=button name=button value=查看结果 onclick=javascript:window.open('[!--news.url--]e/public/vote/?classid=[!--classid--]&id=[!--id--]','','width=[!--width--],height=[!--height--],scrollbars=yes');></td></tr></form></table><!---ecms.record---><!---ecms.temp--->1<!---ecms.field--->通用一级栏目模板<!---ecms.field---><?php
 $title='';
 if (isset($_GET['tagname'])) {
-    $url = abs_url("/tag/{$_GET['tagname']}");
+$url = abs_url("/tag/{$_GET['tagname']}");
 }elseif (!empty($class_r[$navclassid][bname])){
-    $title = $class_r[$navclassid][bname] . '-';
-    $url = sys_ReturnBqClassUrl($class_r[$navclassid]);
+$title = $class_r[$navclassid][bname] . '-';
+$url = sys_ReturnBqClassUrl($class_r[$navclassid]);
 }else{
-    $url = sys_ReturnBqClassUrl($class_r[$navclassid]);
+$url = sys_ReturnBqClassUrl($class_r[$navclassid]);
 }?><!DOCTYPE html>
-<html mip>
+<html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
     <meta name="applicable-device" content="pc,mobile">
-    <meta name="MobileOptimized" content="width"/>
-    <meta name="HandheldFriendly" content="true"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <link rel="shortcut icon" href="[!--news.url--]skin/custom/favicon.ico" type="image/x-icon" />
-    <title><?=$title?>[!--pagetitle--]-<?=$public_r[add_title_suffix]?></title>
+    <title>[!--pagetitle--]-<?=$public_r[add_title_suffix]?></title>
     <meta name="keywords" content="[!--pagekey--]">
-    <meta name="description" content="[!--pagedes--]">      
-    <link rel="stylesheet" type="text/css" href="[!--news.url--]skin/custom/v1/mip.css">
-    <link rel="stylesheet" href="[!--news.url--]skin/custom/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="[!--news.url--]skin/custom/css/mipcms.css">
+    <meta name="description" content="[!--pagedes--]">
+    <link href="[!--news.url--]skin/custom/css/base.css" rel="stylesheet">
+    <link href="[!--news.url--]skin/custom/css/m.css" rel="stylesheet">
+    <link rel="shortcut icon" href="[!--news.url--]skin/custom/images/favicon.ico">
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/main.js"></script>
+    <!--[if lt IE 9]>
+    <script src="[!--news.url--]skin/custom/js/modernizr.js"></script>
+    <![endif]-->
+    <!-- banner-->
+    <link rel="stylesheet" href="[!--news.url--]skin/custom/css/swiper.min.css">
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/swiper.min.js"></script>
+    <script type="text/javascript" src="[!--news.url--]skin/custom/js/banner.js"></script>
     <link rel="canonical" href="[!--news.url--]">
     <?=$public_r[add_ad]?>
-    <style mip-custom>
-        .search-form div{
-            width: 250px;
-        }
-        .mipmb-default-search {
-            margin-top: -4px;
-        }
-                
-        mip-fixed[type="top"] {
-            overflow: initial;
-        }
-
-    
-    </style>
 </head>
 <body>
-    
-    <!--页面头部-->
-    [!--temp.header--]
-    
-<div class="container">
-    <ul class="list-unstyled d-flex breadcrumb p-0 bg-transparent">[!--newsnav--]</ul>
-    <div class="row">
-        <main class="col-lg-8">            
-            <section class="mip-box mip-box-default">
-                <section class="mip-box-heading">
-                    <h3>[!--class.name--]</h3>
-                </section>
-                <section class="mip-box-body">
-                    <!--调用封面栏目最新10条信息-->
-                    [e:loop={'selfinfo',10,0,0}]
-                        <div class="mipui-widget-media-body mipui-category-list-001">
-                            <div class="mipui-category-list-item">
-                                <div class="item-media">
-                                    <a href="<?=$bqsr['titleurl']?>" class="item-link" data-type="mip" data-title="<?=$bqr['title']?>" title='<?=$bqr['title']?>'>
-                                        <mip-img layout="container" alt='<?=$bqr['title']?>' src="<?=$bqr['titlepic']?>"></mip-img>
-                                    </a>
-                                </div>
-                                <div class="item-content">
-                                    <h4><a href="<?=$bqsr['titleurl']?>" data-type="mip" data-title="<?=$bqr['title']?>" title='<?=$bqr['title']?>'><?=$bqr['title']?></a></h4>
-                                    <p class="description"><?=$bqr['smalltext']?>...</p>
-                                    <p><span><?=date('Y-m-d',$bqr['newstime'])?></span></p>
-                                </div>
-                            </div>
-                        </div>
+<!--页面头部-->
+[!--temp.header--]
+<div class="clear blank"></div>
+<article>
+    <div class="blogs left-box">
+        <div class="blogs-box whitebg">
+            <!--当前位置-->
+            <div class="news-title"> <span class="hnav"> 当前位置:[!--newsnav--]</span>
+                <h2><?=$bqsr['classname']?></h2>
+            </div>
+            <div class="blogs-list">
+                <ul>
+                    <li>
+                        [e:loop={'selfinfo',11,0,0}]
+                    <li><i><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><img src="<?= $bqr['titlepic'] ?>" alt="<?=$bqr['title']?>"></a></i>
+                        <h2><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?></a></h2>
+                        <p><?=$bqr['smalltext']?>...</p>
+                        <span><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>">查看更多</a> </span> </li>
                     [/e:loop]
-
-                    <!--调用分页-->
-                    <!-- <div class="page-control"><ul class="pagination"> [!--show.listpage--]</ul></div> -->
-                </section>
-        </main>
-        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <!--侧边栏-->
     [!--temp.sidebar--]
-</div>
-</div>
 
-</main>
-    <footer class="mipui-footer">
-        <div class="container">
-            <p class="text-center mip-footer">&copy;2018-2021 <a data-type="mip" href="[!--news.url--]" data-title="<?=$public_r['sitename']?>"><?=$public_r['sitename']?></a> 备案号:<a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow">豫ICP备10007855号-1</a><a target="_blank" href="[!--news.url--]/sitemap.xml">网站地图</a><br class="visible-xs" /></p>
-            <!--站长自动推送-->
-            <script>
-            (function(){
-                var bp = document.createElement('script');
-                var curProtocol = window.location.protocol.split(':')[0];
-                if (curProtocol === 'https') {
-                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-                }
-                else {
-                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-                }
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(bp, s);
-            })();
-            </script> </p>
-        </div>
-    </footer>
-    <mip-fixed type="gototop">
-        <mip-gototop></mip-gototop>
-    </mip-fixed>
+    </aside>
+</article>
+<div class="clear blank"></div>
 
-<script src="[!--news.url--]skin/custom/v1/mip.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-stats-baidu.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-gototop.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-history.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-fixed.js" type="text/javascript" charset="utf-8"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-cambrian.js"></script>
-<script src="[!--news.url--]skin/custom/v1/mip-form.js" type="text/javascript" charset="utf-8"></script>
+<!--页面底部-->
+[!--temp.footer--]
 
 </body>
 </html><!---ecms.field--->0<!---ecms.record--->2<!---ecms.field--->分类信息一级栏目模板<!---ecms.field---><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
